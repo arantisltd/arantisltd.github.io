@@ -3,56 +3,325 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arantis</title>
+    <title>Arantis - Expert Cloud & DevOps Consultancy</title>
     <style>
+        /* General Body Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif; /* Switched to a more common sans-serif font */
             margin: 0;
             padding: 0;
-            background-color: #111111;
+            background-color: #111111; /* Dark background */
+            color: #f0f0f0; /* Light grey text for better readability */
+            line-height: 1.6;
         }
+
+        /* Header Styles */
         header {
-            background-color: #111111;
+            background-color: #1a1a1a; /* Slightly different dark shade for header */
             color: #fff;
-            padding: 10px 20px;
+            padding: 15px 30px; /* Increased padding */
             display: flex;
             align-items: center;
+            justify-content: space-between; /* To space out logo and nav */
+            position: fixed; /* Fixed header */
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-sizing: border-box; /* Ensures padding doesn't add to width */
         }
-        img {
-            height: 80px;
+
+        header img {
+            height: 60px; /* Adjusted logo size */
             margin-right: 20px;
         }
-        .content {
-            padding: 20px;
+
+        /* Navigation Styles */
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px; /* Spacing between nav items */
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover,
+        nav ul li a:focus {
+            color: #61c0bf; /* A bright accent color for hover */
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 30px 40px; /* Added top padding to account for fixed header */
             text-align: center;
+        }
+
+        /* Hero Section */
+        #hero {
+            background-color: #181818; /* Slightly lighter than body for emphasis */
+            padding-top: 120px; /* More padding for hero, considering fixed header */
+            padding-bottom: 60px;
+        }
+
+        #hero h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
             color: #ffffff;
         }
-        .contact {
+
+        #hero p {
+            font-size: 1.3em;
+            color: #cccccc;
+            max-width: 700px;
+            margin: 0 auto 20px auto;
+        }
+
+        /* General Content Styling */
+        .content-wrapper {
+            max-width: 900px; /* Max width for content readability */
+            margin: 0 auto;
+            text-align: left; /* Align text to left for sections */
+        }
+
+        section h2 {
+            font-size: 2.2em;
+            color: #61c0bf; /* Accent color for section titles */
+            margin-bottom: 30px;
+            text-align: center; /* Center section titles */
+        }
+
+        /* About Us Section */
+        #about p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #e0e0e0;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+            gap: 25px; /* Space between service items */
             margin-top: 20px;
+        }
+
+        .service-item {
+            background-color: #1c1c1c; /* Background for service cards */
+            padding: 25px;
+            border-radius: 8px; /* Rounded corners */
+            border-left: 4px solid #61c0bf; /* Accent border */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px); /* Slight lift on hover */
+            box-shadow: 0 8px 16px rgba(0, 191, 255, 0.1); /* Subtle glow */
+        }
+
+        .service-item h3 {
+            font-size: 1.6em;
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .service-item p {
+            font-size: 1em;
+            color: #cccccc;
+            line-height: 1.5;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: #1a1a1a; /* Different background for contact section */
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+
+        .contact-content p {
             font-size: 1.2em;
             color: #ffffff;
+            margin-bottom: 25px;
         }
-        a:link {
-            color: #ffffff;
+
+        .contact-content a {
+            color: #61c0bf; /* Accent color for email link */
+            text-decoration: none;
             font-weight: bold;
+            border-bottom: 2px dotted #00bfff; /* Underline style */
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;
         }
+
+        .contact-content a:hover,
+        .contact-content a:focus {
+            color: #ffffff;
+            border-bottom-color: #ffffff;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #111111;
+            color: #aaaaaa;
+            text-align: center;
+            padding: 20px 30px;
+            font-size: 0.9em;
+            border-top: 1px solid #333333; /* Separator line */
+        }
+
+        /* Link Styles (general, if not overridden) */
+        a {
+            color: #61c0bf;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px 20px;
+            }
+
+            header img {
+                margin-bottom: 10px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            nav ul li {
+                margin: 8px 0;
+            }
+
+            section {
+                padding: 60px 20px 30px; /* Adjust padding for smaller screens */
+            }
+             #hero {
+                padding-top: 150px; /* Adjust hero padding due to taller header on mobile */
+            }
+
+
+            #hero h1 {
+                font-size: 2.2em;
+            }
+
+            #hero p {
+                font-size: 1.1em;
+            }
+
+            section h2 {
+                font-size: 1.8em;
+            }
+
+            .service-item h3 {
+                font-size: 1.4em;
+            }
+        }
+
     </style>
-    <link rel="icon" href=
-"arantis_logo_wave_icon.png"
-        type="image/x-icon" />
+    <link rel="icon" href="arantis_logo_wave_icon.png" type="image/x-icon" />
 </head>
 <body>
 
 <header>
-    <img src="arantis_name_transparent.svg" alt="Logo">
+    <a href="#"><img src="arantis_name_transparent.svg" alt="Arantis Logo"></a>
+    <nav>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 </header>
 
-<div class="content">
-    <p>Arantis is a forward thinking consultancy, providing views on best practice and transformation for organisations.</p>
-    <div class="contact">
-        <p>Contact us at: <a href="mailto:hello@arantis.co.uk">hello@arantis.co.uk</a></p>
-    </div>
-</div>
+<main>
+    <section id="hero">
+        <div class="content-wrapper">
+            <h1>Transforming Businesses with Expert Tech Consultancy</h1>
+            <p>Arantis empowers UK organisations through cutting-edge cloud architecture, seamless migrations, efficient DevOps practices, and bespoke software solutions.</p>
+            <p><a href="#contact" style="background-color: #61c0bf; color: #111; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block;">Get in Touch</a></p>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="content-wrapper">
+            <h2>About Arantis</h2>
+            <p>Arantis Ltd is a forward-thinking technical consultancy based in the UK. We specialise in guiding organisations through their digital transformation journeys. Our core belief is that technology, when expertly applied, can unlock significant potential and drive business success.</p>
+            <p>With a wealth of experience in modern IT paradigms, we provide pragmatic advice and hands-on expertise. We're passionate about helping our clients adopt best practices, optimise their operations, and build resilient, scalable systems for the future.</p>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="content-wrapper">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3>Cloud Architecture</h3>
+                    <p>We design robust, secure, and scalable cloud architectures tailored to your specific business needs, leveraging platforms like AWS, Azure, and GCP. Our focus is on creating cost-efficient and future-proof solutions.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Cloud Migrations</h3>
+                    <p>Seamlessly migrate your existing applications, data, and infrastructure to the cloud. We handle the entire migration process, from planning and execution to post-migration support, ensuring minimal disruption to your business.</p>
+                </div>
+                <div class="service-item">
+                    <h3>DevOps Implementation</h3>
+                    <p>Accelerate your software delivery lifecycle and improve operational efficiency by adopting DevOps principles. We help implement CI/CD pipelines, automation, infrastructure-as-code, and monitoring solutions.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Custom Software Build</h3>
+                    <p>From concept to deployment, we build bespoke software solutions designed to address your unique challenges and opportunities. Our agile development process ensures we deliver high-quality software that meets your requirements.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Interim / Fractional CTO Support</h3>
+                    <p>Providing experienced technology leadership on an interim or fractional basis. We help guide your tech strategy, manage development teams, and make critical decisions to align technology with your business goals during periods of transition or growth.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Legacy System Modernisation</h3>
+                    <p>Transform your outdated legacy systems into agile, scalable, and maintainable solutions. We assess your current applications and infrastructure, devising a modernisation roadmap that minimises risk and maximises business value.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="content-wrapper">
+            <h2>Let's Discuss Your Project</h2>
+            <div class="contact-content">
+                <p>Ready to elevate your business with expert technical guidance? We'd love to hear from you.</p>
+                <p>Contact us at: <a href="mailto:hello@arantis.co.uk">hello@arantis.co.uk</a></p>
+                </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; <span id="currentYear"></span> Arantis Ltd. All rights reserved.</p>
+    <p>Arantis Ltd is a company registered in England and Wales.</p>
+    </footer>
+
+<script>
+    // Simple script to update the year in the footer automatically
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
